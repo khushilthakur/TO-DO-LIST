@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Task — Task Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="deskmat">
+
+  <header class="masthead">
+    <h1 class="masthead__title">Daily <em>Task</em></h1>
+    <p class="masthead__sub">A simple place to organize the things you need to do.</p>
+  </header>
+
+  <section class="stat-strip" aria-label="Task summary">
+
+    <div class="stat-strip__item">
+      <span class="stat-strip__num" id="statTotal">0</span>
+      <span class="stat-strip__label">Filed</span>
+    </div>
+
+    <div class="stat-strip__divider" aria-hidden="true">·</div>
+
+    <div class="stat-strip__item">
+      <span class="stat-strip__num" id="statPending">0</span>
+      <span class="stat-strip__label">Open</span>
+    </div>
+
+    <div class="stat-strip__divider" aria-hidden="true">·</div>
+
+    <div class="stat-strip__item">
+      <span class="stat-strip__num" id="statDone">0</span>
+      <span class="stat-strip__label">Closed</span>
+    </div>
+
+  </section>
+
+
+  <form class="entry-row" id="entryForm" novalidate>
+
+    <span class="entry-row__mark" aria-hidden="true">＋</span>
+
+    <input
+      type="text"
+      id="taskInput"
+      class="entry-row__input"
+      placeholder="Enter your task…"
+      maxlength="120"
+      autocomplete="off"
+    >
+
+    <button type="submit" class="entry-row__submit">
+      Add Task
+    </button>
+
+  </form>
+
+
+  <p class="entry-row__error" id="entryError" role="alert" aria-live="polite"></p>
+
+
+  <nav class="tabs" role="tablist" aria-label="Filter tasks">
+
+    <button class="tabs__tab is-active" data-filter="all" role="tab" aria-selected="true">
+      All
+    </button>
+
+    <button class="tabs__tab" data-filter="pending" role="tab" aria-selected="false">
+      Pending
+    </button>
+
+    <button class="tabs__tab" data-filter="completed" role="tab" aria-selected="false">
+      Completed
+    </button>
+
+  </nav>
+
+
+  <ul class="ledger" id="ledgerList" aria-live="polite"></ul>
+
+
+  <p class="empty-state" id="emptyState">
+    <span class="empty-state__stamp">EMPTY</span>
+    Nothing here yet. Add a task above to get started.
+  </p>
+
+
+  <footer class="ledger-foot">
+
+    <span id="remainingText">
+      0 items open
+    </span>
+
+    <button class="ledger-foot__clear" id="clearCompleted">
+      Clear completed
+    </button>
+
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
